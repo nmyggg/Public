@@ -71,8 +71,41 @@ Each entry is either:
       (setq org-refile-use-outline-path 'file)
       (setq org-outline-path-complete-in-steps nil)
       (setq org-refile-targets
-            '((nil :maxlevel . 3)
-              (org-agenda-files :maxlevel . 3)))
+            '((nil :maxlevel . 2)
+              (org-agenda-files :maxlevel . 2)))
+      (setq org-refile-allow-creating-parent-nodes 'confirm)
+
+      (setq org-plantuml-jar-path
+            (expand-file-name "~/.emacs.d/private/plantuml.jar"))
+      (setq org-ditaa-jar-path
+            (expand-file-name "~/.emacs.d/private/ditaa.jar"))
+
+      (defconst org-agenda-dir "e:/Documents/GTD/")
+      (setq org-agenda-file-project (expand-file-name "project.org" org-agenda-dir))
+      (setq org-agenda-file-finished (expand-file-name "finished.org" org-agenda-dir))
+      (setq org-agenda-file-personal (expand-file-name "personal.org" org-agenda-dir))
+      (setq org-default-notes-file (expand-file-name "inbox.org" org-agenda-dir))
+      (setq org-agenda-files (list org-agenda-dir))
+
+      ;; the %i would copy the selected text into the template
+      ;;http://www.howardism.org/Technical/Emacs/journaling-org.html
+      (setq org-capture-templates
+            '(("i" "Inbox" entry (file+headline org-agenda-file-note "Inbox")
+               "* %? :inbox:\n %i\n %U"
+               :empty-lines 1)
+              ("b" "Books" entry (file+headline org-agenda-file-personal "Books")
+               "* TODO [#C] %? :book:\n %i\n"
+               :empty-lines 1)
+              ("r" "Remind" entry (file+headline org-agenda-file-personal "Remind")
+               "* TODO [#B] %? :remind:\n %i\n"
+               :empty-lines 1)
+              ("s" "New Skill" entry (file+headline org-agenda-file-personal "New Skill")
+               "* TODO [#B] %? :skill:\n %i\n"
+               :empty-lines 1)
+              ("p" "New Project" entry (file org-agenda-file-project)
+               "* [#A] %?\n %i\n"
+               :empty-lines 1)
+            ))
 
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "ib" 'miyon/org-insert-src-block

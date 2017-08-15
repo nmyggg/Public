@@ -51,6 +51,7 @@ This function should only modify configuration layer settings."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     miyon_org
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -366,30 +367,7 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (defun ivy-insert-action (x)
-    (with-ivy-window
-      (insert x)))
 
-  (ivy-set-actions
-   t
-   '(("i" ivy-insert-action "insert")))
-
-  '(company-show-numbers t)
-  ;; any headline with level <= 2 is a target
-  (setq org-refile-targets '((nil :maxlevel . 2)
-                                        ; all top-level headlines in the
-                                        ; current buffer are used (first) as a
-                                        ; refile target
-                             (org-agenda-files :maxlevel . 2)))
-
-  ;; provide refile targets as paths, including the file name
-  ;; (without directory) as level 1 of the path
-  (setq org-refile-use-outline-path 'file)
-  (setq org-outline-path-complete-in-steps nil)
-  ;; allow to create new nodes (must be confirmed by the user) as
-  ;; refile targets
-  (setq org-refile-allow-creating-parent-nodes 'confirm)
-  (add-hook 'org-mode-hook (lambda () (spacemacs/toggle-line-numbers-off)) 'append)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -404,9 +382,6 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files
-   (quote
-    ("e:/Documents/GTD/finished.org" "e:/Documents/GTD/gtd.org")))
  '(package-selected-packages
    (quote
     (plantuml-mode org-category-capture alert log4e gntp htmlize magit magit-popup git-commit with-editor company yasnippet anaconda-mode pythonic auto-complete ws-butler winum volatile-highlights vi-tilde-fringe uuidgen symon string-inflection spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode password-generator paradox spinner open-junk-file neotree move-text lorem-ipsum linum-relative link-hint ivy-purpose window-purpose imenu-list info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-lion evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu eval-sexp-fu highlight editorconfig dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap ace-link yapfify which-key wgrep web-mode use-package unfill toc-org tagedit smex smeargle slim-mode scss-mode sass-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pcre2el orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain mwim magit-gitflow macrostep live-py-mode less-css-mode ivy-hydra impatient-mode hy-mode help-fns+ helm-make gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flx evil-visualstar evil-org evil-magit evil-escape emmet-mode elisp-slime-nav cython-mode counsel-projectile company-web company-statistics company-anaconda bind-map auto-yasnippet auto-compile ace-window ac-ispell))))
