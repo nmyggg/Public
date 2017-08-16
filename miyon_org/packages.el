@@ -71,8 +71,8 @@ Each entry is either:
       (setq org-refile-use-outline-path 'file)
       (setq org-outline-path-complete-in-steps nil)
       (setq org-refile-targets
-            '((nil :maxlevel . 2)
-              (org-agenda-files :maxlevel . 2)))
+            '((nil :maxlevel . 3)
+              (org-agenda-files :maxlevel . 3)))
       (setq org-refile-allow-creating-parent-nodes 'confirm)
 
       (setq org-plantuml-jar-path
@@ -86,21 +86,23 @@ Each entry is either:
       (setq org-agenda-file-personal (expand-file-name "personal.org" org-agenda-dir))
       (setq org-default-notes-file (expand-file-name "inbox.org" org-agenda-dir))
       (setq org-agenda-files (list org-agenda-dir))
-
+      (setq org-todo-keywords
+            '((sequence "TODO(t!)" "|" "DONE(d@/!)" "ABORT(a@/!)")
+              ))
       ;; the %i would copy the selected text into the template
       ;;http://www.howardism.org/Technical/Emacs/journaling-org.html
       (setq org-capture-templates
             '(("i" "Inbox" entry (file+headline org-agenda-file-note "Inbox")
                "* %? :inbox:\n %i\n %U"
                :empty-lines 1)
-              ("b" "Books" entry (file+headline org-agenda-file-personal "Books")
-               "* TODO [#C] %? :book:\n %i\n"
-               :empty-lines 1)
               ("r" "Remind" entry (file+headline org-agenda-file-personal "Remind")
                "* TODO [#B] %? :remind:\n %i\n"
                :empty-lines 1)
-              ("s" "New Skill" entry (file+headline org-agenda-file-personal "New Skill")
+              ("s" "Skill" entry (file+headline org-agenda-file-personal "Skill")
                "* TODO [#B] %? :skill:\n %i\n"
+               :empty-lines 1)
+              ("b" "New Books" entry (file+headline org-agenda-file-personal "Books")
+               "* TODO [#C] %? :book:\n %i\n"
                :empty-lines 1)
               ("p" "New Project" entry (file org-agenda-file-project)
                "* [#A] %?\n %i\n"
