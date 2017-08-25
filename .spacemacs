@@ -29,7 +29,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(go
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -42,7 +42,7 @@ This function should only modify configuration layer settings."
      better-defaults
      emacs-lisp
      git
-     ;; scala
+     scala
      (c-c++ :variables c-c++-default-mode-for-headers 'c-mode)
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      ;; markdown
@@ -399,7 +399,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (realgud test-simple loc-changes load-relative disaster company-c-headers cmake-mode clang-format ggtags noflet meghanada flycheck groovy-mode groovy-imports pcache gradle-mode ensime sbt-mode scala-mode company-emacs-eclim eclim plantuml-mode org-category-capture alert log4e gntp htmlize magit magit-popup git-commit with-editor company yasnippet anaconda-mode pythonic auto-complete ws-butler winum volatile-highlights vi-tilde-fringe uuidgen symon string-inflection spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode password-generator paradox spinner open-junk-file neotree move-text lorem-ipsum linum-relative link-hint ivy-purpose window-purpose imenu-list info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-lion evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu eval-sexp-fu highlight editorconfig dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap ace-link yapfify which-key wgrep web-mode use-package unfill toc-org tagedit smex smeargle slim-mode scss-mode sass-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pcre2el orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain mwim magit-gitflow macrostep live-py-mode less-css-mode ivy-hydra impatient-mode hy-mode help-fns+ helm-make gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flx evil-visualstar evil-org evil-magit evil-escape emmet-mode elisp-slime-nav cython-mode counsel-projectile company-web company-statistics company-anaconda bind-map auto-yasnippet auto-compile ace-window ac-ispell))))
+    (godoctor go-rename go-guru go-eldoc company-go go-mode realgud test-simple loc-changes load-relative disaster company-c-headers cmake-mode clang-format ggtags noflet meghanada flycheck groovy-mode groovy-imports pcache gradle-mode ensime sbt-mode scala-mode company-emacs-eclim eclim plantuml-mode org-category-capture alert log4e gntp htmlize magit magit-popup git-commit with-editor company yasnippet anaconda-mode pythonic auto-complete ws-butler winum volatile-highlights vi-tilde-fringe uuidgen symon string-inflection spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode password-generator paradox spinner open-junk-file neotree move-text lorem-ipsum linum-relative link-hint ivy-purpose window-purpose imenu-list info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-lion evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu eval-sexp-fu highlight editorconfig dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap ace-link yapfify which-key wgrep web-mode use-package unfill toc-org tagedit smex smeargle slim-mode scss-mode sass-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pcre2el orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain mwim magit-gitflow macrostep live-py-mode less-css-mode ivy-hydra impatient-mode hy-mode help-fns+ helm-make gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flx evil-visualstar evil-org evil-magit evil-escape emmet-mode elisp-slime-nav cython-mode counsel-projectile company-web company-statistics company-anaconda bind-map auto-yasnippet auto-compile ace-window ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
