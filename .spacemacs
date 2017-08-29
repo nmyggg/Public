@@ -30,6 +30,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(go
+     plantuml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -48,9 +49,9 @@ This function should only modify configuration layer settings."
      ;; markdown
      org
      python
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
@@ -91,7 +92,7 @@ It should only modify the values of Spacemacs settings."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https nil
+   dotspacemacs-elpa-https t
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    ;; (default 5)
    dotspacemacs-elpa-timeout 5
@@ -136,14 +137,14 @@ It should only modify the values of Spacemacs settings."
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         spacemacs-light)
+                         spacemacs-dark)
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 15
+                               :size 32
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -278,7 +279,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       pdf-view-mode
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
-   ;; (default nil)
+   ;; ;; (default nil)
    dotspacemacs-line-numbers 'relative
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -397,9 +398,10 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (godoctor go-rename go-guru go-eldoc company-go go-mode realgud test-simple loc-changes load-relative disaster company-c-headers cmake-mode clang-format ggtags noflet meghanada flycheck groovy-mode groovy-imports pcache gradle-mode ensime sbt-mode scala-mode company-emacs-eclim eclim plantuml-mode org-category-capture alert log4e gntp htmlize magit magit-popup git-commit with-editor company yasnippet anaconda-mode pythonic auto-complete ws-butler winum volatile-highlights vi-tilde-fringe uuidgen symon string-inflection spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode password-generator paradox spinner open-junk-file neotree move-text lorem-ipsum linum-relative link-hint ivy-purpose window-purpose imenu-list info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-lion evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu eval-sexp-fu highlight editorconfig dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap ace-link yapfify which-key wgrep web-mode use-package unfill toc-org tagedit smex smeargle slim-mode scss-mode sass-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pcre2el orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain mwim magit-gitflow macrostep live-py-mode less-css-mode ivy-hydra impatient-mode hy-mode help-fns+ helm-make gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flx evil-visualstar evil-org evil-magit evil-escape emmet-mode elisp-slime-nav cython-mode counsel-projectile company-web company-statistics company-anaconda bind-map auto-yasnippet auto-compile ace-window ac-ispell))))
+    (xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help hydra helm helm-core exec-path-from-shell org-plus-contrib evil goto-chg undo-tree diminish projectile pkg-info epl counsel swiper ivy bind-key packed async f dash s avy popup godoctor go-rename go-guru go-eldoc company-go go-mode realgud test-simple loc-changes load-relative disaster company-c-headers cmake-mode clang-format ggtags noflet meghanada flycheck groovy-mode groovy-imports pcache gradle-mode ensime sbt-mode scala-mode company-emacs-eclim eclim plantuml-mode org-category-capture alert log4e gntp htmlize magit magit-popup git-commit with-editor company yasnippet anaconda-mode pythonic auto-complete ws-butler winum volatile-highlights vi-tilde-fringe uuidgen symon string-inflection spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode password-generator paradox spinner open-junk-file neotree move-text lorem-ipsum linum-relative link-hint ivy-purpose window-purpose imenu-list info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-lion evil-indent-plus evil-iedit-state iedit evil-exchange evil-ediff evil-args evil-anzu anzu eval-sexp-fu highlight editorconfig dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap ace-link yapfify which-key wgrep web-mode use-package unfill toc-org tagedit smex smeargle slim-mode scss-mode sass-mode pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements pcre2el orgit org-projectile org-present org-pomodoro org-download org-bullets org-brain mwim magit-gitflow macrostep live-py-mode less-css-mode ivy-hydra impatient-mode hy-mode help-fns+ helm-make gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flx evil-visualstar evil-org evil-magit evil-escape emmet-mode elisp-slime-nav cython-mode counsel-projectile company-web company-statistics company-anaconda bind-map auto-yasnippet auto-compile ace-window ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
