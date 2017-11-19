@@ -79,7 +79,7 @@ Each entry is either:
       (setq org-ditaa-jar-path
             (expand-file-name "~/.emacs.d/private/ditaa.jar"))
 
-      (defconst org-agenda-dir "~/Documents/GTD/")
+      (defconst org-agenda-dir "/home/miyon/Documents/GTD/")
       (setq org-agenda-file-project (expand-file-name "project.org" org-agenda-dir))
       (setq org-agenda-file-finished (expand-file-name "finished.org" org-agenda-dir))
       (setq org-agenda-file-personal (expand-file-name "personal.org" org-agenda-dir))
